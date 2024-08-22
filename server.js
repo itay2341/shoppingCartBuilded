@@ -30,8 +30,7 @@ app.get("/products", (req, res) => {
 
 app.get("*", (req, res) => {
   res.sendFile(__dirname + "/frontend/browser/index.html");
-}
-);
+});
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
