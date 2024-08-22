@@ -6,10 +6,7 @@ const port = 3000;
 
 app.use(express.static(__dirname + "/frontend/browser"));
 app.use(express.json());
-app.get("*", (req, res) => {
-    res.sendFile(__dirname + "/frontend/browser/index.html");
-  }
-);
+
 
 app.get("/products", (req, res) => {
   let jsonData = {};
@@ -30,6 +27,11 @@ app.get("/products", (req, res) => {
     res.status(200).json(jsonData);
   });
 });
+
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/frontend/browser/index.html");
+}
+);
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
