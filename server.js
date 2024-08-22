@@ -6,9 +6,9 @@ const port = 3000;
 
 app.use(express.static(__dirname + "/frontend/browser"));
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/frontend/browser/index.html");
-}
+app.get("*", (req, res) => {
+    res.sendFile(__dirname + "/frontend/browser/index.html");
+  }
 );
 
 app.get("/products", (req, res) => {
